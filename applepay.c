@@ -880,9 +880,8 @@ PHP_FUNCTION(applepay_verify_and_decrypt)
 
     // Perform steps outlined in http://goo.gl/jmkWSF
     do {
-        if ((max_time_diff < 0) || (max_time_diff >= INT16_MAX) ||
-            (transaction_time < 0) || (transaction_time >= INT32_MAX) ||
-            ((transaction_time + max_time_diff) >= INT32_MAX)) {
+        if ((max_time_diff < 0) ||
+            (transaction_time < 0)) {
             rc = APPLEPAY_ERROR_INVALID_INPUT_TIME;
             break;
         }
